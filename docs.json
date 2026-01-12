@@ -1,68 +1,66 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "mpak",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#22c55e",
+    "light": "#4ade80",
+    "dark": "#15803d"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon.ico",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Documentation",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Introduction",
             "pages": [
               "index",
-              "quickstart",
-              "development"
+              "quickstart"
             ]
           },
           {
-            "group": "Customization",
+            "group": "MCP Bundles",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "bundles/what-is-mcpb",
+              "bundles/overview",
+              "bundles/manifest",
+              "bundles/github-action",
+              "bundles/multi-platform",
+              "bundles/user-config",
+              "bundles/provenance"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Skills",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "skills/what-are-skills",
+              "skills/overview",
+              "skills/skill-md",
+              "skills/github-action"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "CLI Reference",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Getting Started",
             "pages": [
-              "api-reference/introduction"
+              "cli/install",
+              "cli/claude-desktop"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Commands",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "cli/search",
+              "cli/show",
+              "cli/pull",
+              "cli/run",
+              "cli/config"
             ]
           }
         ]
@@ -71,52 +69,40 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "Registry",
+          "href": "https://mpak.dev",
+          "icon": "box"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "GitHub",
+          "href": "https://github.com/NimbleBrainInc/mpak-cli",
+          "icon": "github"
         }
       ]
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/mpak-light.png",
+    "dark": "/logo/mpak-dark.png"
   },
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "Discord",
+        "href": "https://nimblebrain.ai/discord"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Browse Registry",
+      "href": "https://mpak.dev"
     }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/nimblebraininc",
+      "github": "https://github.com/NimbleBrainInc",
+      "discord": "https://nimblebrain.ai/discord"
     }
   }
 }

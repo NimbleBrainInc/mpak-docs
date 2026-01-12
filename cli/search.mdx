@@ -1,0 +1,79 @@
+---
+title: "mpak bundle search"
+description: "Search for bundles in the registry"
+---
+
+Find MCP bundles in the mpak registry.
+
+## Usage
+
+```bash
+mpak bundle search <query>
+```
+
+## Examples
+
+```bash
+# Search for bundles
+mpak bundle search postgres
+mpak bundle search "file system"
+
+# Filter by server type
+mpak bundle search --type python echo
+mpak bundle search --type node database
+
+# Sort and limit results
+mpak bundle search --sort downloads --limit 10 mcp
+```
+
+## Options
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `--type <type>` | Filter by server type: `node`, `python`, `binary` | All types |
+| `--sort <field>` | Sort by: `downloads`, `recent`, `name` | `downloads` |
+| `--limit <n>` | Maximum results to return | `20` |
+| `--offset <n>` | Pagination offset | `0` |
+| `--json` | Output as JSON | Human-readable |
+
+## Output
+
+```bash
+$ mpak bundle search echo
+
+  @nimblebraininc/echo (1.0.0)
+  A simple echo MCP server for testing
+  python | 2.1 KB | 1,250 downloads
+
+  @example/echo-advanced (2.1.0)
+  Echo server with logging and metrics
+  node | 156 KB | 523 downloads
+```
+
+### JSON Output
+
+```bash
+$ mpak bundle search echo --json
+```
+
+```json
+{
+  "packages": [
+    {
+      "name": "@nimblebraininc/echo",
+      "description": "A simple echo MCP server for testing",
+      "latest_version": "1.0.0",
+      "server_type": "python",
+      "downloads": 1250
+    }
+  ],
+  "total": 2
+}
+```
+
+## Tips
+
+- Search is case-insensitive
+- Multiple words search across name and description
+- Use `--type` to filter when you know what runtime you need
+- Browse [mpak.dev](https://mpak.dev) for a visual search experience

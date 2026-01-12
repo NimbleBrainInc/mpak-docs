@@ -1,0 +1,108 @@
+---
+title: "mpak bundle run"
+description: "Run an MCP server from the registry"
+---
+
+Run an MCP server directly from the registry. Bundles are cached locally for fast subsequent runs.
+
+## Usage
+
+```bash
+mpak bundle run <package>
+```
+
+## Examples
+
+```bash
+# Run latest version
+mpak bundle run @nimblebraininc/echo
+
+# Run specific version
+mpak bundle run @nimblebraininc/echo@1.0.0
+
+# Force re-download (update cache)
+mpak bundle run @nimblebraininc/echo --update
+```
+
+## Options
+
+| Option | Description |
+|--------|-------------|
+| `--update` | Force re-download even if cached |
+
+## How It Works
+
+1. **Check cache** - Look for bundle in `~/.mpak/cache/`
+2. **Download** - If not cached (or `--update`), download from registry
+3. **Extract** - Unzip the `.mcpb` file
+4. **Run** - Execute the server using the bundled configuration
+
+The server runs in the foreground, communicating via stdio (JSON-RPC).
+
+## Claude Desktop Integration
+
+Add to your Claude Desktop config to use bundles as MCP servers:
+
+<CodeGroup>
+```json macOS
+// ~/Library/Application Support/Claude/claude_desktop_config.json
+{
+  "mcpServers": {
+    "echo": {
+      "command": "mpak",
+      "args": ["bundle", "run", "@nimblebraininc/echo"]
+    }
+  }
+}
+```
+
+```json Windows
+// %APPDATA%\Claude\claude_desktop_config.json
+{
+  "mcpServers": {
+    "echo": {
+      "command": "mpak",
+      "args": ["bundle", "run", "@nimblebraininc/echo"]
+    }
+  }
+}
+```
+</CodeGroup>
+
+## Configuration
+
+Some bundles require configuration (API keys, etc.). See [mpak config](/cli/config) for storing configuration values.
+
+You can also pass environment variables directly in Claude Desktop config:
+
+```json
+{
+  "mcpServers": {
+    "ipinfo": {
+      "command": "mpak",
+      "args": ["bundle", "run", "@nimblebraininc/ipinfo"],
+      "env": {
+        "IPINFO_API_TOKEN": "your-token-here"
+      }
+    }
+  }
+}
+```
+
+## Troubleshooting
+
+### Bundle not found
+
+```
+Error: No bundle found for @owner/package on darwin-arm64
+```
+
+The bundle may not be available for your platform. Check available platforms with `mpak bundle show`.
+
+### Python not found
+
+```
+Error: python3 not found
+```
+
+Python-based bundles require Python 3.10+ to be installed and available in your PATH.
