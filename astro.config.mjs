@@ -54,14 +54,22 @@ export default defineConfig({
           ],
         },
         {
+          label: 'Integrations',
+          items: [
+            { label: 'Claude Code', slug: 'integrations/claude-code' },
+            { label: 'Claude Desktop', slug: 'integrations/claude-desktop' },
+            { label: 'Cursor', slug: 'integrations/cursor' },
+            { label: 'VS Code', slug: 'integrations/vscode' },
+          ],
+        },
+        {
           label: 'CLI Reference',
           items: [
             { label: 'Installation', slug: 'cli/install' },
-            { label: 'Claude Desktop', slug: 'cli/claude-desktop' },
-            { label: 'bundle search', slug: 'cli/search' },
-            { label: 'bundle show', slug: 'cli/show' },
-            { label: 'bundle pull', slug: 'cli/pull' },
-            { label: 'bundle run', slug: 'cli/run' },
+            { label: 'search', slug: 'cli/search' },
+            { label: 'show', slug: 'cli/show' },
+            { label: 'pull', slug: 'cli/pull' },
+            { label: 'run', slug: 'cli/run' },
             { label: 'config', slug: 'cli/config' },
           ],
         },

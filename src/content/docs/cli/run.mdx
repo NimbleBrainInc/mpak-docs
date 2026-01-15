@@ -1,29 +1,31 @@
 ---
-title: mpak bundle run
+title: mpak run
 description: Run an MCP server from the registry
 ---
-
-import { Tabs, TabItem } from '@astrojs/starlight/components';
 
 Run an MCP server directly from the registry. Bundles are cached locally for fast subsequent runs.
 
 ## Usage
 
 ```bash
-mpak bundle run <package>
+mpak run <package>
 ```
+
+:::tip
+`mpak run` is a shortcut for `mpak bundle run`. Both work identically.
+:::
 
 ## Examples
 
 ```bash
 # Run latest version
-mpak bundle run @nimblebraininc/echo
+mpak run @nimblebraininc/echo
 
 # Run specific version
-mpak bundle run @nimblebraininc/echo@1.0.0
+mpak run @nimblebraininc/echo@1.0.0
 
 # Force re-download (update cache)
-mpak bundle run @nimblebraininc/echo --update
+mpak run @nimblebraininc/echo --update
 ```
 
 ## Options
@@ -41,58 +43,16 @@ mpak bundle run @nimblebraininc/echo --update
 
 The server runs in the foreground, communicating via stdio (JSON-RPC).
 
-## Claude Desktop Integration
+## Integration with Claude
 
-Add to your Claude Desktop config to use bundles as MCP servers:
+See the [Integrations](/integrations/claude-code) section for setting up mpak bundles with:
 
-<Tabs>
-  <TabItem label="macOS">
-    ```json
-    // ~/Library/Application Support/Claude/claude_desktop_config.json
-    {
-      "mcpServers": {
-        "echo": {
-          "command": "mpak",
-          "args": ["bundle", "run", "@nimblebraininc/echo"]
-        }
-      }
-    }
-    ```
-  </TabItem>
-  <TabItem label="Windows">
-    ```json
-    // %APPDATA%\Claude\claude_desktop_config.json
-    {
-      "mcpServers": {
-        "echo": {
-          "command": "mpak",
-          "args": ["bundle", "run", "@nimblebraininc/echo"]
-        }
-      }
-    }
-    ```
-  </TabItem>
-</Tabs>
+- [Claude Code](/integrations/claude-code) - One command: `claude mcp add --transport stdio echo -- mpak run @nimblebraininc/echo`
+- [Claude Desktop](/integrations/claude-desktop) - JSON config file
 
 ## Configuration
 
 Some bundles require configuration (API keys, etc.). See [mpak config](/cli/config) for storing configuration values.
-
-You can also pass environment variables directly in Claude Desktop config:
-
-```json
-{
-  "mcpServers": {
-    "ipinfo": {
-      "command": "mpak",
-      "args": ["bundle", "run", "@nimblebraininc/ipinfo"],
-      "env": {
-        "IPINFO_API_TOKEN": "your-token-here"
-      }
-    }
-  }
-}
-```
 
 ## Troubleshooting
 
@@ -102,7 +62,7 @@ You can also pass environment variables directly in Claude Desktop config:
 Error: No bundle found for @owner/package on darwin-arm64
 ```
 
-The bundle may not be available for your platform. Check available platforms with `mpak bundle show`.
+The bundle may not be available for your platform. Check available platforms with `mpak show`.
 
 ### Python not found
 
