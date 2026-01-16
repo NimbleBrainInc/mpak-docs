@@ -51,6 +51,7 @@ export default defineConfig({
             { label: 'Publishing', slug: 'skills/overview' },
             { label: 'SKILL.md Reference', slug: 'skills/skill-md' },
             { label: 'GitHub Action', slug: 'skills/github-action' },
+            { label: 'Monorepo Guide', slug: 'skills/monorepo-guide' },
           ],
         },
         {

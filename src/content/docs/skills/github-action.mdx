@@ -27,6 +27,46 @@ jobs:
       - uses: NimbleBrainInc/skill-pack@v1
 ```
 
+## When to Use skill-pack
+
+The skill-pack action is optimized for different scenarios:
+
+### Single-Skill Repositories (Recommended)
+
+If your repository contains **one skill**, skill-pack works perfectly out of the box. Tag a release, and skill-pack handles everything:
+
+```yaml
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: NimbleBrainInc/skill-pack@v1
+```
+
+### Multi-Skill Repositories (Shared Versioning)
+
+For repositories with **2-5 skills** that release together, skill-pack discovers and publishes all of them with the same release tag:
+
+```yaml
+- uses: NimbleBrainInc/skill-pack@v1
+```
+
+All skills share the same release and version.
+
+### Multi-Skill Repositories (Independent Versioning)
+
+For repositories with **many skills** that need independent versions (e.g., `blog-editor/v1.0.0`, `code-reviewer/v2.1.0`), use release-please instead of triggering skill-pack directly.
+
+See the [Monorepo Guide](/skills/monorepo-guide) for setting up:
+- Independent version tracking per skill
+- Per-skill tags and changelogs
+- Only releasing skills that changed
+
 ## What It Does
 
 1. **Discovers** all `SKILL.md` files in your repository
