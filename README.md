@@ -1,3 +1,17 @@
+> [!WARNING]
+> **This repository is archived. Development has moved to the mpak monorepo.**
+>
+> The mpak documentation site now lives at:
+> **👉 [NimbleBrainInc/mpak → apps/docs](https://github.com/NimbleBrainInc/mpak/tree/main/apps/docs)**
+>
+> Live docs: [mpak.dev/docs](https://mpak.dev/docs)
+>
+> Issues and pull requests are closed here. Please open new reports against the [mpak monorepo](https://github.com/NimbleBrainInc/mpak/issues).
+>
+> *Previous documentation preserved below for historical reference.*
+
+---
+
 # mpak Documentation
 
 Documentation for [mpak](https://mpak.dev), the package registry for agent capabilities.
